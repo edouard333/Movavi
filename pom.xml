@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.phenix</groupId>
+    <artifactId>movavi</artifactId>
+    <name>Movavi</name>
+    <version>0.1.0</version>
+    <packaging>jar</packaging>
+    <url>https://github.com/studioequipeBE/ManageVFXTracker</url>
+    
+    <developers>
+        <developer>
+            <name>Edouard Jeanjean</name>
+            <email>edouard128@hotmail.com</email>
+        </developer>
+    </developers>
+    
+    <dependencies>        
+        <!-- 20220320 = 2022 : https://mvnrepository.com/artifact/org.json/json -->
+        <dependency>
+            <groupId>com.googlecode.json-simple</groupId>
+            <artifactId>json-simple</artifactId>
+            <version>1.1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.phenix</groupId>
+            <artifactId>tools</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+    </dependencies>
+    
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <!-- Type d'application : "graphic", "console" ou "library". -->
+        <appType>library</appType>
+        <!-- Nom de l'application. -->
+        <appName>Movavi</appName>
+        <!-- Pour l'instant comme ça pour indiquer la version. -->
+        <appVersion>${project.version}</appVersion>
+        <exec.mainClass>${project.groupId}.${project.artifactId}.Main</exec.mainClass>
+    </properties>
+</project>
