@@ -19,6 +19,12 @@ import org.json.simple.parser.ParseException;
  */
 public class Movavi {
 
+    public static final String EXTENSION = ".mepj";
+
+    public static final String EXTENSION2 = ".mepx";
+
+    public static final String EXTENSION_TMP = ".tmp";
+
     /**
      * La timeline dans le projet. TODO : Peut-être plusieurs ?
      */
@@ -34,13 +40,40 @@ public class Movavi {
      * TODO : Voir pour récupérer directement le fichier de projet (".mepj" qui
      * est un ".zip" en fait).
      *
-     * @param fichier_json Le fichier JSON.
+     * @param fichier_movavi Le projet Movavi.
      */
-    public Movavi(File fichier_json) {
+    public Movavi(File fichier_movavi) {
+        if (fichier_movavi.getName().endsWith(".json")) {
+            json_format(fichier_movavi);
+        } else {
+            xml_format(fichier_movavi);
+        }
+    }
 
+    /**
+     *
+     * @param fichier_xml
+     */
+    private void xml_format(File fichier_xml) {
+
+        try {
+            this.timeline = new TimelineDTO();
+            this.liste_clip = new ArrayList<ClipDTO>();
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
+    }
+
+    /**
+     *
+     * @param fichier_json
+     */
+    private void json_format(File fichier_json) {
         try {
             FileReader reader = new FileReader(fichier_json, Charset.forName("UTF-8"));
             JSONObject racine = (JSONObject) new JSONParser().parse(reader);
+
+            reader.close();
 
             JSONObject data = (JSONObject) racine.get("data");
             JSONObject content = (JSONObject) data.get("content");
@@ -61,7 +94,7 @@ public class Movavi {
             this.timeline.video.height = Integer.parseInt(video.get("height").toString());
             this.timeline.video.width = Integer.parseInt(video.get("width").toString());
 
-            liste_clip = new ArrayList<ClipDTO>();
+            this.liste_clip = new ArrayList<ClipDTO>();
 
             JSONArray clips = (JSONArray) timeline_json.get("clips");
 
@@ -89,13 +122,14 @@ public class Movavi {
                 clip_tmp.start = Integer.parseInt(timing.get("timestamp").toString());
                 clip_tmp.end = -1;
                 clip_tmp.duration = Integer.parseInt(timing.get("duration").toString());
+                clip_tmp.source_duration = Integer.parseInt(timing.get("sourceDuration").toString());
                 clip_tmp.end = clip_tmp.start + clip_tmp.duration;
 
                 this.liste_clip.add(clip_tmp);
             }
 
         } catch (IOException | NumberFormatException | ParseException exception) {
-
+            System.out.println("Erreur : " + exception.getMessage());
         }
     }
 }

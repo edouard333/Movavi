@@ -43,6 +43,11 @@ public class ClipDTO {
     public int duration;
 
     /**
+     * Durée du fichier.
+     */
+    public int source_duration;
+
+    /**
      * Point in du clip.
      */
     public int in;
