@@ -55,6 +55,14 @@ public class MovaviBL {
 
             ArrayList<ClipDTO> liste_clip = projet.liste_clip;
 
+            liste_clip.sort((c1, c2) -> {
+                if (c1.start > c2.start) {
+                    return 1;
+                } else {
+                    return -1;
+                }
+            });
+
             System.out.println("Nombre clip : " + liste_clip.size());
 
             ClipDTO clip;
@@ -149,7 +157,7 @@ public class MovaviBL {
      * @return
      */
     private static String digit(int nombre) {
-        if (nombre > 10) {
+        if (nombre >= 10) {
             return nombre + "";
         } else {
             return "0" + nombre;
