@@ -8,14 +8,19 @@ package com.phenix.movavi.dto;
 public class ClipDTO {
 
     /**
-     * Type est VIDEO.
+     * Clip type video.
      */
     public static final int VIDEO = 1;
 
     /**
-     * Type est AUDIO.
+     * Clip type audio.
      */
     public static final int AUDIO = 0;
+
+    /**
+     * Clip type texte.
+     */
+    public static final int TEXT = 4;
 
     /**
      * Nom du clip (dans la timeline).
@@ -61,6 +66,13 @@ public class ClipDTO {
      * Numéro de piste audio.
      */
     public int number_track;
+
+    /**
+     * Indique si une stabilisation image a été réalisée.
+     */
+    public boolean stabilization;
+
+    public String texte;
 
     /**
      * Construit un clip.

@@ -5,6 +5,7 @@ import com.phenix.movavi.dto.ClipDTO;
 import com.phenix.movavi.exception.MovaviException;
 import com.phenix.movavi.util.Utils;
 import com.phenix.tools.Timecode;
+import com.phenix.tools.XMLNLE.Marqueur;
 import com.phenix.tools.XMLNLE.Media;
 import com.phenix.tools.XMLNLE.MediaVideo;
 import com.phenix.tools.XMLNLE.Timeline;
@@ -86,6 +87,7 @@ public class MovaviBL {
             timeline.setDimension(1920, 1080);
 
             Media media;
+            Marqueur marqueur;
 
             for (int i = 0; i < liste_clip.size(); i++) {
                 clip = liste_clip.get(i);
@@ -103,14 +105,18 @@ public class MovaviBL {
                     media.setIn(new Timecode(milisecondeToTC(clip.in, frameRateN, frameRateD)));
                     media.setOut(new Timecode(milisecondeToTC(clip.out, frameRateN, frameRateD)));
 
-                    System.out.println("Numéro piste : " + 1);
-
                     timeline.addMedia(
                             /*clip.number_track*/1,
                             media,
                             new Timecode(milisecondeToTC(clip.start, frameRateN, frameRateD)),
                             new Timecode(milisecondeToTC(clip.end, frameRateN, frameRateD))
                     );
+                } else if (clip.type == ClipDTO.TEXT) {
+                    marqueur = new Marqueur();
+                    marqueur.setNote(clip.texte);
+                    marqueur.setIn(new Timecode(milisecondeToTC(clip.start, frameRateN, frameRateD)));
+                    marqueur.setOut(new Timecode(milisecondeToTC(clip.start + clip.duration, frameRateN, frameRateD)));
+                    timeline.addMarqueur(marqueur);
                 }
                 /*else {
                 media = new MediaAudio(clip.name);
