@@ -26,7 +26,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace pref="139" max="32767" attributes="0"/>
-              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+              <Component id="L_drag_and_drop" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="127" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -35,14 +35,14 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="131" max="-2" attributes="0"/>
-              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+              <Component id="L_drag_and_drop" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="153" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="jLabel1">
+    <Component class="javax.swing.JLabel" name="L_drag_and_drop">
       <Properties>
         <Property name="text" type="java.lang.String" value="D&#xe9;pos&#xe9; un projet Movavi"/>
       </Properties>

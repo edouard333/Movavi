@@ -4,12 +4,12 @@ import com.phenix.movavi.Movavi;
 import com.phenix.movavi.dto.ClipDTO;
 import com.phenix.movavi.exception.MovaviException;
 import com.phenix.movavi.util.Utils;
-import com.phenix.tools.Timecode;
-import com.phenix.tools.XMLNLE.Marqueur;
-import com.phenix.tools.XMLNLE.Media;
-import com.phenix.tools.XMLNLE.MediaVideo;
-import com.phenix.tools.XMLNLE.Timeline;
-import com.phenix.tools.XMLNLE.XMLFCP7;
+import com.phenix.timecode.Timecode;
+import com.phenix.xmlfcp7.Marqueur;
+import com.phenix.xmlfcp7.Media;
+import com.phenix.xmlfcp7.MediaVideo;
+import com.phenix.xmlfcp7.Timeline;
+import com.phenix.xmlfcp7.XMLFCP7;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -19,18 +19,20 @@ import java.util.ArrayList;
  *
  * @author <a href="mailto:edouard128@hotmail.com">Edouard Jeanjean</a>
  */
-public class MovaviBL {
+public final class MovaviBL {
 
     /**
      * Empêcher d'instancier la classe.
      */
-    private MovaviBL() {
+    private MovaviBL() throws Exception {
+        throw new Exception("La classe ne peut pas être instancié.");
     }
 
     /**
      * Converti un projet Movavi en projet DaVinci Resolve.
      *
      * @param projet_movavi
+     *
      * @throws MovaviException
      */
     public static void convert(File projet_movavi) throws MovaviException {
@@ -137,7 +139,6 @@ public class MovaviBL {
      * @param fichier
      */
     private static void deleteFile(File fichier) {
-
         File[] liste_fichier = fichier.listFiles();
 
         if (liste_fichier.length > 0) {

@@ -5,7 +5,7 @@ package com.phenix.movavi.dto;
  *
  * @author <a href="mailto:edouard128@hotmail.com">Edouard Jeanjean</a>
  */
-public class TimelineDTO {
+public final class TimelineDTO {
 
     /**
      * Informations vidéo de la timeline.

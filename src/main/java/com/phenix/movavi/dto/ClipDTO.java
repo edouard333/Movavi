@@ -5,7 +5,7 @@ package com.phenix.movavi.dto;
  *
  * @author <a href="mailto:edouard128@hotmail.com">Edouard Jeanjean</a>
  */
-public class ClipDTO {
+public final class ClipDTO {
 
     /**
      * Clip type video.
@@ -72,6 +72,9 @@ public class ClipDTO {
      */
     public boolean stabilization;
 
+    /**
+     *
+     */
     public String texte;
 
     /**

@@ -6,9 +6,16 @@ package com.phenix.movavi.exception;
  */
 public class MovaviException extends Exception {
 
+    /**
+     *
+     */
     public MovaviException() {
     }
 
+    /**
+     *
+     * @param message
+     */
     public MovaviException(String message) {
         super(message);
     }

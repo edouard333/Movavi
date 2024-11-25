@@ -14,7 +14,6 @@
         Any value defined here will override the pom.xml file value but is only applicable to the current project.
         -->
         <netbeans.hint.jdkPlatform>JDK_17</netbeans.hint.jdkPlatform>
-        <netbeans.hint.license>empty</netbeans.hint.license>
-        <org-netbeans-modules-javascript2-requirejs.enabled>true</org-netbeans-modules-javascript2-requirejs.enabled>
+        <netbeans.hint.license>licence-vide</netbeans.hint.license>
     </properties>
 </project-shared-configuration>

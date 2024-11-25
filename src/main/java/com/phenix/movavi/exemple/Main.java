@@ -1,4 +1,4 @@
-package com.phenix.movavi;
+package com.phenix.movavi.exemple;
 
 import com.phenix.movavi.ui.Fenetre;
 
@@ -8,6 +8,10 @@ import com.phenix.movavi.ui.Fenetre;
  */
 public class Main {
 
+    /**
+     *
+     * @param args
+     */
     public static void main(String[] args) {
 
         /* Set the Nimbus look and feel */

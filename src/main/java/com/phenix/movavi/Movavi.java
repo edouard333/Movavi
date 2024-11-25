@@ -21,6 +21,9 @@ import org.jsoup.Jsoup;
  */
 public class Movavi {
 
+    /**
+     *
+     */
     public static final String EXTENSION = ".mepj";
 
     /**
@@ -28,6 +31,9 @@ public class Movavi {
      */
     public static final String EXTENSION2 = ".mepx";
 
+    /**
+     *
+     */
     public static final String EXTENSION_TMP = ".tmp";
 
     /**

@@ -5,7 +5,7 @@ package com.phenix.movavi.dto;
  *
  * @author <a href="mailto:edouard128@hotmail.com">Edouard Jeanjean</a>
  */
-public class AudioDTO {
+public final class AudioDTO {
 
     /**
      * Nombre de canaux ?

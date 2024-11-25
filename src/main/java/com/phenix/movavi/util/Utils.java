@@ -15,12 +15,13 @@ import java.util.zip.ZipOutputStream;
  *
  * @author <a href="mailto:edouard128@hotmail.com">Edouard Jeanjean</a>
  */
-public class Utils {
+public final class Utils {
 
     /**
      * Empêcher d'instancier la classe.
      */
-    private Utils() {
+    private Utils() throws Exception {
+        throw new Exception("La classe ne peut pas être instancié.");
     }
 
     /**
