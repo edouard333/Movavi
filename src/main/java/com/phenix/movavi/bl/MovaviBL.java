@@ -10,6 +10,7 @@ import com.phenix.xmlfcp7.Media;
 import com.phenix.xmlfcp7.MediaVideo;
 import com.phenix.xmlfcp7.Timeline;
 import com.phenix.xmlfcp7.XMLFCP7;
+import com.phenix.xmlfcp7.exception.XMLFCP7Exception;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -78,7 +79,7 @@ public final class MovaviBL {
                         + " - Out : " + milisecondeToTC(clip.out, frameRateN, frameRateD));
             }
 
-            XMLFCP7 xml = new XMLFCP7(new File(projet_movavi.getParent() + File.separator + "TimelineForResolve.xml"), XMLFCP7.ECRITURE, XMLFCP7.RESOLVE);
+            XMLFCP7 xml = new XMLFCP7(new File(projet_movavi.getParent() + File.separator + "TimelineForResolve.xml"), XMLFCP7.Mode.ECRITURE, XMLFCP7.Logiciel.RESOLVE);
 
             double framerate = (double) frameRateN / (double) frameRateD;
             int framerate_int = (int) Math.round(framerate);
@@ -125,11 +126,11 @@ public final class MovaviBL {
             }*/
             }
             xml.addTimeline(timeline);
-            xml.close();
+            xml.save();
 
             deleteFile(dossier_tmp);
 
-        } catch (IOException exception) {
+        } catch (IOException | XMLFCP7Exception exception) {
             throw new MovaviException(exception.getMessage());
         }
     }
